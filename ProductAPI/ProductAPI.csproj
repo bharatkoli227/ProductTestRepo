@@ -16,8 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ProductBAL\ProductBAL.csproj" />
     <ProjectReference Include="..\ProductDAL\ProductDAL.csproj" />
     <ProjectReference Include="..\ProductModel\ProductModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
 
 </Project>

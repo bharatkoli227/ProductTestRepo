@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using ProductBAL.ProductBAL;
 using ProductDAL.Data;
+using ProductDAL.ProductRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IProductBAL, ProductBAL.ProductBAL.ProductBAL>();
+builder.Services.AddScoped<IProductRepository,ProductRepository>();
 
 
 builder.Services.AddCors(action =>
@@ -32,6 +37,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();
 
 app.UseAuthorization();
 

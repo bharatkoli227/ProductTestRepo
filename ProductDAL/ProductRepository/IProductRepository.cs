@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProductModel.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace ProductDAL.ProductRepository
 {
     public interface IProductRepository
     {
+        bool CreateProduct(Product product);
     }
 }
